@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
 
-  profileImae: {
+  profileImage: {
     type: String,
     require: false
   },
