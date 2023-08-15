@@ -224,7 +224,7 @@ app.post("/messages", async (req, res) => {
         ...message.toObject(),
         file: {
           ...message.file.toObject(),
-          path: `http://localhost:8000/file/${message.file.id}`
+          path: `https://backend-prelim.onrender.com/file/${message.file.id}`
         }
       }));
   
