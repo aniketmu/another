@@ -220,15 +220,15 @@ app.post("/messages", async (req, res) => {
         return res.status(401).send({ message: "No Messages Found" });
       }
 
-      const modifiedMessages = messages.map((message) => ({
-        ...message.toObject(),
-        file: {
-          ...message.file.toObject(),
-          path: `https://backend-prelim.onrender.com/file/${message.file.id}`
-        }
-      }));
+      // const modifiedMessages = messages.map((message) => ({
+      //   ...message.toObject(),
+      //   file: {
+      //     ...message.file.toObject(),
+      //     path: `https://backend-prelim.onrender.com/file/${message.file.id}`
+      //   }
+      // }));
   
-      res.status(200).send({ message: "Messages Found", messages: modifiedMessages });
+      res.status(200).send({ message: "Messages Found", messages: messages });
     } catch (error) {
       console.log("Error fetching messages:", error);
       res.status(500).send({ message: "An error occurred", error });
