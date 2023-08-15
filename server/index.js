@@ -174,7 +174,7 @@ app.post("/signin", async (req, res) => {
                       }
                   );
 
-                  res.status(200).send({ message: "Login Successful", userId: user._id, email: user.email, name: user.name, token });
+                  res.status(200).send({ message: "Login Successful", userId: user._id, email: user.email, name: user.name, image: user.profileImage, token });
               })
               .catch(() => {
                   res.status(401).send({ message: "Password does not match" })
