@@ -1,4 +1,5 @@
 
+
 # Project Title
 
 A brief description of what this project does and who it's for
@@ -14,7 +15,7 @@ A list of technologies used within the project:
 * [MongoDB](https://www.mongodb.com/)
 
 ## Installation
-***
+
 A little intro about the installation. 
 ```
 $ git clone https://github.com/aniketmu/final-project-backend.git
