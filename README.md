@@ -1,8 +1,8 @@
 
 
-# Project Title
+# Chatter
 
-A brief description of what this project does and who it's for
+A chatting app named Chatter.
 
 ### Introduction 
 This the backend of the Chatter App. The backend is a vital for the real-time messaging App dealing with multiple texts and files.
