@@ -332,6 +332,27 @@ app.post("/messages", async (req, res) => {
     response.status(200).send({message: 'Direct message and file details stored.', fileObj})
   })
   
+  app.post('/update-profile-image', async (req, res) => {
+    const { userId, photoUrl } = req.body;
+  
+    try {
+      const user = await User.findByIdAndUpdate(
+        userId,
+        { profileImage: photoUrl },
+        { new: true } // Return the updated user
+      );
+  
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      res.status(200).json(user);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'An error occurred' });
+    }
+  });
+  
 
 server.listen(8000, ()=> {
     console.log("Its alive at 8000");
