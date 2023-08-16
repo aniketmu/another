@@ -1,5 +1,3 @@
-
-
 # Chatter
 
 A chatting app named Chatter.
