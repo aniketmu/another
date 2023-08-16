@@ -3,7 +3,7 @@
 A chatting app named Chatter.
 
 ### Introduction 
-This the backend of the Chatter App. The backend is a vital for the real-time messaging App dealing with multiple texts and files.
+This is the backend of the Chatter App. The backend is vital for the real-time messaging App dealing with multiple texts and files.
 
 ### Technologies Used
 
