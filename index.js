@@ -34,10 +34,10 @@ app.use(express.json());
 app.use(cors());
 
 aws.config.update({
-  accessKeyId: "AKIA6QYRDQ4F2NBYOO6N",
-  secretAccessKey: "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",
-  region: "ap-south-1",
-});
+  accessKeyId: process.env.ACCESS_KEY,
+  secretAccessKey: process.env.ACCESS_SECRET,
+  region: process.env.REGION
+})
 
 const s3 = new aws.S3();
 
@@ -354,7 +354,7 @@ app.post("/search-Users", async (req, res) => {
 app.post("/chat-message-file", upload.single("file"), (request, response) => {
   const file = request.file;
   const params = {
-    Bucket: "chatter-c-project",
+    Bucket: process.env.BUCKET,
     Key: request.file.originalname,
     Body: request.file.buffer,
   };
