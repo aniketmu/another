@@ -152,11 +152,9 @@ app.post("/signup", async (req, res) => {
 
   const existingUser = await User.findOne({ email });
   if (existingUser) {
-    return res
-      .status(400)
-      .send({
-        message: "Email is already in use. Please choose another email.",
-      });
+    return res.status(400).send({
+      message: "Email is already in use. Please choose another email.",
+    });
   }
 
   bcrypt
@@ -207,16 +205,14 @@ app.post("/signin", async (req, res) => {
             }
           );
 
-          res
-            .status(200)
-            .send({
-              message: "Login Successful",
-              userId: user._id,
-              email: user.email,
-              name: user.name,
-              image: user.profileImage,
-              token,
-            });
+          res.status(200).send({
+            message: "Login Successful",
+            userId: user._id,
+            email: user.email,
+            name: user.name,
+            image: user.profileImage,
+            token,
+          });
         })
         .catch(() => {
           res.status(401).send({ message: "Password does not match" });
@@ -313,11 +309,9 @@ app.post("/invite-to-channel", async (req, res) => {
         (admin) => admin._id.toString() === user._id.toString()
       )
     ) {
-      return res
-        .status(400)
-        .send({
-          message: "User is already a member or administrator of the channel",
-        });
+      return res.status(400).send({
+        message: "User is already a member or administrator of the channel",
+      });
     }
 
     channel.members.push({ objectUserId: user._id });
@@ -389,7 +383,6 @@ app.post("/chat-message-file", upload.single("file"), (request, response) => {
 app.post("/update-profile-image", async (req, res) => {
   const { userId, photoUrl } = req.body;
   const userObjectId = new ObjectId(userId);
-  console.log("received", userId, photoUrl);
 
   try {
     const user = await User.findByIdAndUpdate(
